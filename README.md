@@ -1,2 +1,2 @@
 # introToJava
-Geek brains intro to java
+GeekBrains intro to java
