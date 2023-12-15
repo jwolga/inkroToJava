@@ -9,16 +9,13 @@ public class Laptop {
     private OperationSystem operationSystem;
     private Color color;
 
-    public Laptop() {
-    }
-
     public Laptop(Brand brand, String model, int ram, int ssd, int price, OperationSystem operationSystem, Color color) {
         setBrand(brand);
         setModel(model);
         setRam(ram);
         setSsd(ssd);
         setPrice(price);
-        setOperatingSystem(operationSystem);
+        setOperationSystem(operationSystem);
         setColor(color);
     }
 
@@ -62,11 +59,11 @@ public class Laptop {
         this.price = value;
     }
 
-    public OperationSystem getOperatingSystem() {
+    public OperationSystem getOperationSystem() {
         return this.operationSystem;
     }
 
-    public void setOperatingSystem(OperationSystem value) {
+    public void setOperationSystem(OperationSystem value) {
         this.operationSystem = value;
     }
 
@@ -80,7 +77,8 @@ public class Laptop {
 
     @Override
     public String toString() {
-        return EnumHelper.getBrand(brand) + ", " + model + ", " + ram + "GB, " + ssd + "GB, " + EnumHelper.getOperationSystem(operationSystem) + ", " + EnumHelper.getColor(color) + ", $" + price;
+        return brand + ", " + model + ", " + ram + "GB, " + ssd + "GB, "
+                + operationSystem + ", " + color + ", $" + price;
     }
 
     @Override
@@ -90,7 +88,9 @@ public class Laptop {
         }
         if (obj instanceof Laptop) {
             Laptop laptop = (Laptop) obj;
-            return brand.equals(laptop.getBrand()) && model.equals(laptop.getModel()) && ram == laptop.getRam() && ssd == laptop.getSsd() && price == laptop.getPrice() && operationSystem.equals(laptop.getOperatingSystem()) && color.equals(laptop.getColor());
+            return brand.equals(laptop.getBrand()) && model.equals(laptop.getModel()) && ram == laptop.getRam()
+                    && ssd == laptop.getSsd() && price == laptop.getPrice()
+                    && operationSystem.equals(laptop.getOperationSystem()) && color.equals(laptop.getColor());
         }
         return false;
     }
